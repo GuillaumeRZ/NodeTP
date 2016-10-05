@@ -84,6 +84,7 @@ nbproject
 # Node.js
 ############################
 
+config.json
 lib-cov
 lcov.info
 pids
