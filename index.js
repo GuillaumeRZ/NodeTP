@@ -17,7 +17,7 @@ const ejs = require('ejs');
 */
 const plugins = [
 	require('vision'),
-  require('./apis/users')
+  require('./apis/users'),
   require('./apis/tweets')
 ];
 
