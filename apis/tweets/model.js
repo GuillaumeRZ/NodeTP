@@ -19,7 +19,7 @@ module.exports = database.instance.define('user', {
   underscored: true,
   classMethods: {
     associate: models => {
-      models.tweet.belongsTo(models.user);
+      models.tweet.belongsTo(models.User);
     }
   }
 });
