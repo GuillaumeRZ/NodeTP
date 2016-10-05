@@ -8,7 +8,8 @@ ROUTES USERS
 GET /users -> models.user.findAll()
 GET / users/:id -> models.user.findById()
 POST /user -> models.user.create()
-DELETE /users/:id -> models.user.update() 
+DELETE /users/:id -> models.user.update()
+GET /users/:id/tweets -> models.tweet.findAll({ where: { user_id: }})
 
 ROUTES TWEETS
 GET / -> models.tweet.findAll()
