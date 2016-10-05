@@ -1,40 +1,43 @@
 /**
-* Connect to the database.js
-*/
-const database = require('../../database');
+ * Define the user model.
+ */
 
-/**
-* Define the user model.
-*/
-module.exports = database.instance.define('user', {
+module.exports = (database, types) => {
+  return database.define('user', {
     username: {
-        type: database.types.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            min: 1,
-            max: 30,
-            is: ['^[a-z0-9]+$', 'i']
-        }
+      type: types.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 30,
+        is: ['^[a-z0-9]+$','i']
+      }
     },
     first_name: {
-        type: database.types.STRING
+      type: types.STRING
     },
     last_name: {
-        type: database.types.STRING
+      type: types.STRING
     },
     password: {
-        type: database.types.STRING,
-        allowNull: false
+      type: types.STRING,
+      allowNull: false
     },
     email: {
-        type: database.types.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true
-        }
+      type: types.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
     },
     biography: {
-			type: database.types.TEXT
-		}
-}, {underscored: true});
+      type: types.TEXT,
+      validate: {
+        max: 400
+      }
+    }
+  }, {
+    underscored: true
+  });
+};

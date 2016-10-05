@@ -1,29 +1,20 @@
 {
-  "name": "wsf",
+  "name": "test",
   "version": "1.0.0",
-  "description": "Think to switch the database profil in config.json",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node ./index",
-    "db:sync": "node ./sync.js"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^2.5.2",
+    "ejs": "~2.5.2",
     "hapi": "~15.1.1",
     "lodash": "^4.16.3",
-    "mysql": "^2.11.1",
-    "sequelize": "^3.24.3",
-    "vision": "^4.1.0"
+    "mysql": "~2.11.1",
+    "sequelize": "~3.24.3",
+    "vision": "~4.1.0"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GuillaumeRZ/NodeTP.git"
-  },
-  "bugs": {
-    "url": "https://github.com/GuillaumeRZ/NodeTP/issues"
-  },
-  "homepage": "https://github.com/GuillaumeRZ/NodeTP#readme"
+  "scripts": {
+    "start": "node ./index",
+    "db:sync": "DB_SYNC=true node ./database.js"
+  }
 }
