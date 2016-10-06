@@ -39,5 +39,14 @@ module.exports = (database, types) => {
     }
   }, {
     underscored: true
+    // hooks: {
+    //   beforeDestroy: (user) => {
+    //     database.models.tweet.destroy({
+    //       where: {
+    //         user_id: user.id
+    //       }
+    //     })
+    //   }
+    // }
   });
 };
