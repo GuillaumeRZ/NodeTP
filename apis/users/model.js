@@ -47,6 +47,14 @@ module.exports = (database, types) => {
     //       }
     //     })
     //   }
+    // },
+    // classMethods: {
+    //   associate: models => {
+    //     models.user.belongsToMany(models.user, {
+    //       as: 'followers',
+    //       through: 'users__following'
+    //     })
+    //   }
     // }
   });
 };

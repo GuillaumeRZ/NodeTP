@@ -58,6 +58,27 @@ exports.register = function (server, options, next) {
    }
  })
 
+   server.route({
+     method:'PUT',
+     path:'/users/{id}',
+     handler:(request, reply) => {
+       const data = request.payload || request.params || request.body;
+       models.user.update(request.payload, {
+           where: {
+             id: request.params.id
+           }
+       })
+        .then(result => {
+          return reply(result)
+        })
+        .catch(err => {
+          return reply({
+            error : err.message
+          })
+        })
+     }
+   })
+
  // server.route({
  //   method:'DELETE',
  //   path:'/users/{id}',

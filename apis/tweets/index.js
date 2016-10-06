@@ -58,6 +58,27 @@ const models = require('../../database');
     }
   })
 
+  server.route({
+    method:'PUT',
+    path:'/tweets/{id}',
+    handler:(request, reply) => {
+      const data = request.payload || request.params || request.body;
+      models.tweet.update(request.payload, {
+          where: {
+            id: request.params.id
+          }
+      })
+       .then(result => {
+         return reply(result)
+       })
+       .catch(err => {
+         return reply({
+           error : err.message
+         })
+       })
+    }
+  })
+
   // server.route({
   //   method:'DELETE',
   //   path:'/tweets/{id}',
