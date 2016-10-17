@@ -11,7 +11,7 @@ module.exports = (database, types) => {
       validate: {
         min: 1,
         max: 30,
-        is: ['^[a-z0-9]+$','i']
+        is: ['^[a-z0-9]+$', 'i']
       }
     },
     first_name: {
@@ -38,16 +38,16 @@ module.exports = (database, types) => {
       }
     }
   }, {
-    underscored: true
-    // hooks: {
-    //   beforeDestroy: (user) => {
-    //     database.models.tweet.destroy({
-    //       where: {
-    //         user_id: user.id
-    //       }
-    //     })
-    //   }
-    // },
+    underscored: true,
+
+    beforeDestroy: (user) => {
+      database.models.tweet.destroy({
+        where: {
+          user_id: user.id
+        }
+      })
+    },
+
     // classMethods: {
     //   associate: models => {
     //     models.user.belongsToMany(models.user, {
