@@ -79,22 +79,21 @@ const models = require('../../database');
     }
   })
 
-  // server.route({
-  //   method:'DELETE',
-  //   path:'/tweets/{id}',
-  //   handler:(request, reply) => {
-  //     const data = request.payload || request.params || request.body;
-  //     models.tweet.del(data)
-  //      .then(result => {
-  //        return reply(result)
-  //      })
-  //      .catch(err => {
-  //        return reply({
-  //          error : err.message
-  //        })
-  //      })
-  //   }
-  // })
+  server.route({
+    method: 'DELETE',
+    path: '/tweets/{id}',
+    handler: (request, reply) => {
+      models.tweet.destroy({
+        where: {
+          id: request.params.id
+        }
+      }).then(result => {
+        return reply('Deleted successfully !')
+      }).catch(err => {
+        return reply({error: err.message})
+      })
+    }
+  })
    next();
  };
 

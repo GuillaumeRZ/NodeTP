@@ -72,6 +72,10 @@ exports.register = function(server, options, next) {
         where: {
           id: request.params.id
         }
+      models.tweet.destroy({
+        where: {
+          user_id: request.params.id
+        }
       }).then(result => {
         return reply('Deleted successfully !')
       }).catch(err => {
