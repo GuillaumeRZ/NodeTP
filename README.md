@@ -14,7 +14,7 @@ GET / users/:id -> models.user.findById() ==> OK
 
 GET /users/:id/tweets -> models.tweet.findAll({ where: { user_id: }}) ==> OK
 
-DELETE /users/:id -> models.user.update()
+DELETE /users/:id -> models.user.update() ==> OK
 
 
 === ROUTES TWEETS ===
@@ -25,7 +25,7 @@ GET / -> models.tweet.findAll() ==> OK
 
 GET /tweets/:id -> models.tweet.findById() ==> OK
 
-DELETE /tweets/:id -> models.tweet.del() OR models.tweet.update({ id: , state: 0 })
+DELETE /tweets/:id -> models.tweet.del() OR models.tweet.update({ id: , state: 0 }) ==> OK
 
 
 === A FAIRE COMME TP ===
@@ -62,31 +62,33 @@ Notifications
 
 GET / => Liste des tweets des users qu'on follow
 
-POST /tweets => Post d'un nouveau tweet
+POST /tweets => Post d'un nouveau tweet ==> OK
 
-DELETE /tweets => Delete d'un tweet
+DELETE /tweets => Delete d'un tweet ==> OK
 
-GET /tweets/{id} => Single view d'un tweet
-
-
-GET /users => Liste de tous les users
-
-POST / users => Creation d'un nouveau user
-
-PUT /users => Update de user
-
-DELETE /users => Delete un user
-
-GET /users/{user_id} => Single view d'un user
+GET /tweets/{id} => Single view d'un tweet ==> OK
 
 
-GET /users/{user_id}/following => Liste des users qu'on following
+GET /users => Liste de tous les users ==> OK
+
+POST / users => Creation d'un nouveau user ==> OK
+
+PUT /users => Update de user ==> OK
+
+DELETE /users => Delete un user ==> OK
+
+GET /users/{user_id} => Single view d'un user ==> OK
+
+
+GET /users/{user_id}/following => Liste des users qu'on follow
 
 POST /users/following/{following_id} => Follow d'un nouveau user
 
 
 GET /users/{user_id}/followers => Liste des users qui nous follow
 
+
+=== BONUS GLOBALEMENT ===
 
 Creation d'une API hashtag avec un model hashtag
 
