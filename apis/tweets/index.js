@@ -88,7 +88,7 @@ const models = require('../../database');
           id: request.params.id
         }
       }).then(result => {
-        return reply('Deleted successfully !')
+        return reply('Deleted the tweet successfully !')
       }).catch(err => {
         return reply({error: err.message})
       })

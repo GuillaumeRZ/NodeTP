@@ -40,23 +40,21 @@ module.exports = (database, types) => {
   }, {
     underscored: true,
 
-    hooks: {
-      beforeDestroy: (user) => {
-        database.models.tweet.destroy({
-          where: {
-            user_id: user.id
-          }
-        })
-      }
-    }
+    beforeDestroy: (user) => {
+      database.models.tweet.destroy({
+        where: {
+          user_id: user.id
+        }
+      })
+    },
 
-      // classMethods: {
-      //   associate: models => {
-      //     models.user.belongsToMany(models.user, {
-      //       as: 'followers',
-      //       through: 'users__following'
-      //     })
-      //   }
-      // }
-    });
-  };
+    // classMethods: {
+    //   associate: models => {
+    //     models.user.belongsToMany(models.user, {
+    //       as: 'followers',
+    //       through: 'users__following'
+    //     })
+    //   }
+    // }
+  });
+};
