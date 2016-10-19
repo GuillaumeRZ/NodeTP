@@ -77,7 +77,7 @@ exports.register = function(server, options, next) {
           user_id: request.params.id
         }
       }).then(result => {
-        return reply('Deleted successfully !')
+        return reply('Deleted the user successfully !')
       }).catch(err => {
         return reply({error: err.message})
       })
