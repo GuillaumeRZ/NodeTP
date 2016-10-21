@@ -53,6 +53,10 @@ module.exports = (database, types) => {
         models.user.hasMany(models.tweet, {
           onDelete: 'cascade'
         });
+        models.user.belongsToMany(models.user, {
+          as: 'followers',
+          through: 'users__following'
+        });
       }
     }
   });
